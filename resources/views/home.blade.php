@@ -10,15 +10,15 @@
             </div>
             <!-- Profile Info-->
             <div class="clo-9 pt-5">
-                <div><h1>Ahmad Ali</h1></div>
+                <div><h1>{{$user->name}}</h1></div>
                 <div class="d-flex">
                     <div class="pr-5"><strong>153</strong> Posts</div>
                     <div class="pr-5"><strong>23k</strong> Followers</div>
                     <div class="pr-5"><strong>212</strong> Following</div>
                 </div>
-                <div class="pt-4 font-weight-bold">FreeCodeCamp</div>
-                <div>Lorem ipsum dolor sit sasdw das.</div>
-                <div><a href="https://instagram.com/AhmadAliii21">AhmadAliii21</a></div>
+                <div class="pt-4 font-weight-bold">{{$user->profile->title}}</div>
+                <div>{{$user->profile->description}}</div>
+                <div><a href="https://instagram.com/AhmadAliii21">{{$user->profile->url}}</a></div>
             </div>
         </div>
         <!-- Row Ends-->
