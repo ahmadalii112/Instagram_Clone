@@ -14,6 +14,7 @@
                     <h1>{{$user->name}}</h1>
                     <a href="{{route('posts.create')}}">Add new Posts</a>
                 </div>
+                <a href="{{route('profile.edit',$user->id)}}">Edit Profile</a>
                 <div class="d-flex mt-1">
                     <div class="pr-5"><strong>{{$user->posts->count()}}</strong> Posts</div>
                     <div class="pr-5"><strong>23k</strong> Followers</div>
