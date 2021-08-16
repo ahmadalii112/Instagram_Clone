@@ -20,6 +20,7 @@ class ProfileController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $this->authorize('update',$user->profile);
         return view('Profile.edit',compact('user'));
     }
 

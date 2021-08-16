@@ -12,9 +12,13 @@
             <div class="clo-9 pt-5">
                 <div class="d-flex justify-content-between align-items-center">
                     <h1>{{$user->name}}</h1>
+                    @can('update',$user->profile)
                     <a href="{{route('posts.create')}}">Add new Posts</a>
+                    @endcan
                 </div>
+                @can('update',$user->profile)
                 <a href="{{route('profile.edit',$user->id)}}">Edit Profile</a>
+                @endcan
                 <div class="d-flex mt-1">
                     <div class="pr-5"><strong>{{$user->posts->count()}}</strong> Posts</div>
                     <div class="pr-5"><strong>23k</strong> Followers</div>
