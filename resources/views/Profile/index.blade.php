@@ -6,7 +6,7 @@
         <!-- Row Start-->
         <div class="row">
             <div class="col-3 p-5">
-                <img class="rounded-circle" src="http://placehold.it/150x150" alt="Profile-Image">
+                <img class="rounded-circle w-100" src="{{asset($user->profile->ProfileImage())}}" alt="Profile-Image">
             </div>
             <!-- Profile Info-->
             <div class="clo-9 pt-5">
