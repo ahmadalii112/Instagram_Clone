@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('profile/{profile}',[ProfileController::class,'index'])->name('profil
 Route::get('profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('profile/{profile}',[ProfileController::class,'update'])->name('profile.update');
 Route::resource('posts',PostController::class);
+
+Route::post('follow/{user}',[FollowsController::class,'store']);
