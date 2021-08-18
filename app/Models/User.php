@@ -55,14 +55,21 @@ class  User extends Authenticatable
             );
         });
     }
+    // TODO: One to One
 
     public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Profile::class);
     }
-
+    // TODO: One to Many
     public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
+    }
+
+    //TODO: M:M => User can follow many Profiles so its following many profiles
+    public function following()
+    {
+        return $this->belongsToMany(Profile::class);
     }
 }

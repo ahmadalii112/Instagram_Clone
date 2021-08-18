@@ -25,4 +25,10 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    //todo:  M:M => Profile can Have Many Users that follow it
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    
 }
