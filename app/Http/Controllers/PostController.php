@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostCreateRequest;
 use App\Models\Post;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -13,6 +14,14 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        $posts = Post::whereIn('user_id',$users)->with('user')->latest()->simplePaginate(5);
+        $profile = Profile::where('id','!=',auth()->user()->id)->get()->random(6);
+        return view('Posts.index',compact('posts','profile'));
     }
 
     public function create()

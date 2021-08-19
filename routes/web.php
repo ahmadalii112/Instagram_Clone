@@ -16,9 +16,6 @@ use App\Http\Controllers\FollowsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -26,6 +23,7 @@ Auth::routes();
 Route::get('profile/{profile}',[ProfileController::class,'index'])->name('profile.index');
 Route::get('profile/{profile}/edit',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('profile/{profile}',[ProfileController::class,'update'])->name('profile.update');
+Route::get('/', [PostController::class,'index'])->name('posts.index');
 Route::resource('posts',PostController::class);
 
 Route::post('follow/{user}',[FollowsController::class,'store']);
